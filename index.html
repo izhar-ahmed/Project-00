@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+    <style>
+        form {
+            width: 400px;
+            height: 800px;
+            margin: 0 auto;
+        }
+        .input-field{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <div class="input-field"> 
+          <label for="name">Full Name:</label><br>
+          <input type="text" name="name" id="" />
+        </div>
+        <div class="input-field">
+          <label for="gender">Gender:</label><br>
+          <input type="radio" name="gender" id="male" value="male" />
+          <label for="male">Male</label>
+          <input type="radio" name="gender" id="female" value="female" />
+          <label for="male">Female</label>
+          <input type="radio" name="gender" id="other" value="other" />
+          <label for="other">Other</label>
+        </div>
+        <div class="input-field">
+            <label for="education-select">Select Educations</label><br>
+            <select name="educations" id="education-select">
+                <option value="">Choose Education</option>
+                <option value="mcs">MCS</option>
+                <option value="mca">MCA</option>
+                <option value="bcs">BCS</option>
+            </select>
+        </div>
+        <div class="input-field">
+            <p>Select Skills:</p>
+            <input type="checkbox" name="html" id="html">
+            <label for="html">HTML</label>
+            <input type="checkbox" name="css" id="css">
+            <label for="css">CSS</label>
+            <input type="checkbox" name="js" id="js">
+            <label for="js">JAVASCRIPCT</label>
+        </div>
+        <div class="input-field">
+            <label for="avatar">Choose Profile Picture:</label>
+            <input type="file" name="avatar" id="avatar">
+        </div>
+        <div class="input-field">
+            <label for="description">Description:</label><br>
+            <textarea name="description" id="description" cols="30" rows="10"></textarea>
+        </div>
+        <button name="save" type="submit">Save</button>
+        <button name="cancel" type="submit">Cancel</button>
+  
+      </form>
+</body>
+</html>
