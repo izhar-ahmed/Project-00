@@ -97,7 +97,10 @@
                 success: function (data) {
                     // your callback here
                     $(".message").html("Data saved successfully");
-                    setTimeout(function(){$(".message").hide()}, 5000);
+                    setTimeout(function(){
+                        $(".message").hide();
+                        document.querySelector("#studentForm").reset();
+                    }, 5000);
                     
                     
                     console.log(data);
