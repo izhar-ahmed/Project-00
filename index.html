@@ -14,13 +14,21 @@
         .input-field{
             margin-bottom: 10px;
         }
+        .message{
+            background-color: gray;
+            font-size: 20px;
+            text-align: center;
+            color: white;
+            width: 50%;
+        }
     </style>
 </head>
 <body>
-    <form action="/" method="post">
+    
+    <form id="studentForm" enctype="multipart/form-data">
         <div class="input-field"> 
           <label for="name">Full Name:</label><br>
-          <input type="text" name="name" id="" />
+          <input type="text" name="name" id="name" />
         </div>
         <div class="input-field">
           <label for="gender">Gender:</label><br>
@@ -57,9 +65,58 @@
             <label for="description">Description:</label><br>
             <textarea name="description" id="description" cols="30" rows="10"></textarea>
         </div>
+        <div class="input-field">
         <button name="save" type="submit">Save</button>
         <button name="cancel" type="submit">Cancel</button>
+        </div>
+        <div class="message"></div>
   
       </form>
+
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+      <script type="text/javascript">
+        //   Ajax: asyncronous javascript and xml
+
+        // Step 01: Submit for using javascript
+        let studentForm = document.getElementById("studentForm")
+        studentForm.addEventListener("submit", function (e) {
+            e.preventDefault()
+            var myForm = this;
+
+
+            // Step 02: Validate the fields
+
+
+            // Step 03: Get the data from the Form
+            let formData = new FormData(myForm);
+
+            $.ajax({
+                type: "POST",
+                url: "/save",
+                success: function (data) {
+                    // your callback here
+                    $(".message").html("Data saved successfully");
+                    setTimeout(function(){$(".message").hide()}, 5000);
+                    
+                    
+                    console.log(data);
+                },
+                error: function (error) {
+                    // handle error
+                    console.log(error);
+                },
+                async: true,
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                timeout: 60000
+            })
+
+
+            // Step 05: Take action according to the response
+        })
+      </script>
 </body>
 </html>
